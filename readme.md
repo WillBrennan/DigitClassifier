@@ -38,4 +38,4 @@ predict_labels = ConvNet.predict(predict_data)
 ###Performance
 Algorithm achieves an precision of 99.4% in approximately 300m on a MacBook Pro (without using GPU). In addition, here's a pretty confusion matrix.
 
-![Confusion Matrix](https://github.com/WillBrennan/DigitClassifier/raw/master/src/confusion.png "Confusion Matrix")
+![Confusion Matrix](https://raw.githubusercontent.com/WillBrennan/DigitClassifier/master/confusion.png "Confusion Matrix")

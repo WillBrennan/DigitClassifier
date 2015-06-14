@@ -28,14 +28,14 @@ import numpy
 import DeepConv
 
 ConvNet = DeepConv.DeepConv()
-data = numpy.random.rand(100,10)
+data = numpy.random.rand(100, 28)
 labels = numpy.zeros((100), dtype=numpy.uint8)
 ConvNet.fit(data, labels)
-predict_data = numpy.random.rand(20, 10)
+predict_data = numpy.random.rand(20, 28)
 predict_labels = ConvNet.predict(predict_data)
 ```
 
 ###Performance
 Algorithm achieves an precision of 99.4% in approximately 300m on a MacBook Pro (without using GPU). In addition, here's a pretty confusion matrix.
 
-![Confusion Matrix](https://github.com/WillBrennan/MNIST/raw/master/src/Documentation/Conf.png "Confusion Matrix")
+![Confusion Matrix](https://github.com/WillBrennan/DigitClassifier/raw/master/src/confusion.png "Confusion Matrix")

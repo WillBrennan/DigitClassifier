@@ -10,7 +10,7 @@ much of those tools can be used on this.
 
 Getting the app to run is pretty easy, just clone the repo, install requirements, and then run!
 
-```
+```bash
 # Clone the repo
 git clone https://github.com/WillBrennan/MNIST && cd MNIST
 # Install requirements
@@ -23,7 +23,7 @@ This package uses [Theano](http://deeplearning.net/software/theano/), so it can 
 ### Usage
 This class can be used in much the same way as Sklearn is used. Here's a small example below,
 
-```
+```python
 import numpy
 import DeepConv
 

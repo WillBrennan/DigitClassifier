@@ -39,6 +39,8 @@ def get_args(default=None, args_string=''):
     parser.add_argument('-n', '--n_epochs', dest='n_epochs', default=250, type=int, help='number of training epochs to conduct')
     parser.add_argument('-b', '--batch_size', dest='batch_size', default=500, type=int, help='batch size for training')
     parser.add_argument('-d', '--display', dest='display', action='store_true', help='display confusion matrix')
+    parser.add_argument('-s', '--save', dest='save', action='store_true', help='save DeepConv weights')
+    parser.add_argument('-l', '--load', dest='load', action='store_true', help='load DeepConv weights')
     parser.add_argument('-q', '--quiet', dest='quiet', action='store_true', help='silence the logger')
     parser.add_argument('-e', '--debug', dest='debug', action='store_true', help='set logger to debug')
     if args_string:

@@ -68,3 +68,6 @@ target/
 
 #Jetbrains
 .idea
+
+#Pickled Objects
+*.pkl

@@ -59,8 +59,7 @@ class LogisticRegression(object):
         return -T.mean(T.log(self.p_y_given_x)[T.arange(y.shape[0]), y])
 
     def cross_entropy(self, y):
-        # todo: Implement cross_entropy loss function
-        raise ValueError("This has not yet been implemented")
+        return T.nnet.categorical_crossentropy(self.p_y_given_x, y)
 
     def errors(self, y):
         # check if y has same dimension of y_pred

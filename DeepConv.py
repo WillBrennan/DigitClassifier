@@ -28,7 +28,10 @@ class DeepConv(object):
         self.args = args
         if self.args.debug:
             theano.exception_verbosity = 'high'
-        self.layers = None
+        if self.args.load:
+            self.load()
+        else:
+            self.layers = None
         self.test_model = None
         self.validate_model = None
         self.train_model = None
@@ -111,6 +114,8 @@ class DeepConv(object):
         t_taken = int((time.time()-start_time)/60.0)
         logger.info('Training Complete')
         logger.info('Test score of {0}%, training time {1}m'.format(test_score*100.0, t_taken))
+        if self.args.save:
+            self.save()
 
     def predict(self, x_data, batch_size=500):
         assert isinstance(x_data, numpy.ndarray), "input features must be a numpy array"

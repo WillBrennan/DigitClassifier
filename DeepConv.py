@@ -100,7 +100,7 @@ class DeepConv(object):
                         time_stamp = "Null"
                     else:
                         time_stamp = datetime.utcfromtimestamp((time.time()-start_time)*(100.0/percentage)+start_time)
-                    logger.info("training is {0}% complete (Completion at {1})".format(percentage, time_stamp))
+                    logger.info("training is {0}% complete (Completion at {1})".format(round(percentage, 2), time_stamp))
                 train_cost = self.train_model(minibatch_index)
                 if (count + 1) % validation_frequency == 0:
                     testlosses = [self.test_model(i) for i in xrange(n_test_batches)]

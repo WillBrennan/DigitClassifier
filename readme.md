@@ -8,7 +8,7 @@ much of those tools can be used on this.
 
 ###Quick Start
 
-Getting the app to run is pretty easy, just clone the repo, install requirements, and then run!
+Getting the app to run is pretty easy, just clone the repo, install requirements, and then run! The number of threads that Theano uses can be controlled via the `OMP_NUM_THREADS` enviromental variable, below it is set to 8 threads.
 
 ```bash
 # Clone the repo
@@ -16,7 +16,7 @@ git clone https://github.com/WillBrennan/MNIST && cd MNIST
 # Install requirements
 sudo pip install theano numpy sklearn
 # Run the bot
-python main_mnist.py
+OMP_NUM_THREADS=8 python main.py
 ```
 This package uses [Theano](http://deeplearning.net/software/theano/), so it can train on a GPU if the CUDA Toolkit is installed on the system. Information on the installation process can be found on their [website](https://developer.nvidia.com/cuda-downloads).
 
@@ -36,6 +36,6 @@ predict_labels = ConvNet.predict(predict_data)
 ```
 
 ###Performance
-Algorithm achieves an precision of 99.4% in approximately 300m on a MacBook Pro (without using GPU). In addition, here's a pretty confusion matrix.
+Algorithm achieves an precision of 99.4% in approximately 30m on a MacBook Pro (without using GPU). In addition, here's a pretty confusion matrix.
 
 ![Confusion Matrix](https://raw.githubusercontent.com/WillBrennan/DigitClassifier/master/confusion.png "Confusion Matrix")

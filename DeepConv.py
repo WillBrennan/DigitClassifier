@@ -58,20 +58,20 @@ class DeepConv(object):
         ))
         self.layers.append(Layers.PoolingLayer(
             rng,
-            input=self.layers[0].output,
+            input=self.layers[-1].output,
             image_shape=(batch_size, nkerns[0], 12, 12),
             filter_shape=(nkerns[1], nkerns[0], 5, 5),
             poolsize=(2, 2)
         ))
         self.layers.append(Layers.HiddenLayer(
             rng,
-            input=self.layers[1].output.flatten(2),
+            input=self.layers[-1].output.flatten(2),
             n_in=nkerns[1] * 4 * 4,
             n_out=500,
             activation=T.tanh
         ))
         self.layers.append(Layers.LogisticRegression(
-            input=self.layers[2].output,
+            input=self.layers[-1].output,
             n_in=500,
             n_out=10
         ))

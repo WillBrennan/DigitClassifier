@@ -71,3 +71,6 @@ target/
 
 #Pickled Objects
 *.pkl
+
+#Databases
+*.db

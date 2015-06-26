@@ -36,6 +36,6 @@ predict_labels = ConvNet.predict(predict_data)
 ```
 
 ###Performance
-Dataset followed the standard 80% train - 20% test split, when prediction was conducted on the test set it achieved an accuracy of 99.4% after approximitaly 90m training on a MacBook Pro (without using GPU). In addition, here's a pretty confusion matrix.
+Dataset followed the standard 80% train - 20% test split, when prediction was conducted on the test set it achieved an accuracy of 99.4% after approximitaly 90m training on a MacBook Pro (with CUDA). In addition, here's a pretty confusion matrix.
 
 ![Confusion Matrix](https://raw.githubusercontent.com/WillBrennan/DigitClassifier/master/confusion.png "Confusion Matrix")

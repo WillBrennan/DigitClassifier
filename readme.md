@@ -15,7 +15,9 @@ Getting the app to run is pretty easy, just clone the repo, install requirements
 git clone https://github.com/WillBrennan/MNIST && cd MNIST
 # Install requirements
 sudo pip install theano numpy sklearn
-# Run the bot
+# Run the script on GPU
+THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python main.py
+# Run the script on CPU
 OMP_NUM_THREADS=8 python main.py
 ```
 This package uses [Theano](http://deeplearning.net/software/theano/), so it can train on a GPU if the CUDA Toolkit is installed on the system. Information on the installation process can be found on their [website](https://developer.nvidia.com/cuda-downloads).

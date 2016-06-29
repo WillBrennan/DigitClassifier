@@ -17,7 +17,7 @@ if __name__ == '__main__':
     data = Scripts.get_mnist()
     data = Scripts.normalise(data)
     x, x_test, y, y_test = Scripts.sklearn2theano(data)
-    classifier = DeepConv.DeepConv(args)
+    classifier = DeepConv.DeepConv(save=args.save, load=args.load, debug=args.debug)
     classifier.fit(data=x, labels=y, test_data=x_test, test_labels=y_test, n_epochs=args.n_epochs, batch_size=args.batch_size)
     y_pred = classifier.predict(x_test)
     classifier.score_report(y_test=y_test, y_pred=y_pred)

@@ -23,18 +23,28 @@ OMP_NUM_THREADS=8 python main.py
 This package uses [Theano](http://deeplearning.net/software/theano/), so it can train on a GPU if the CUDA Toolkit is installed on the system. Information on the installation process can be found on their [website](https://developer.nvidia.com/cuda-downloads).
 
 ### Usage
-This class can be used in much the same way as Sklearn is used. Here's a small example below,
+This class can be used in much the same way as Sklearn is used. Here's a small example below, its easier to just call `main.py` however.
 
 ```python
 import numpy
+import Scripts
 import DeepConv
 
-ConvNet = DeepConv.DeepConv()
-data = numpy.random.rand(100, 28)
-labels = numpy.zeros((100), dtype=numpy.uint8)
-ConvNet.fit(data, labels)
-predict_data = numpy.random.rand(20, 28)
-predict_labels = ConvNet.predict(predict_data)
+args_save = False
+args_load = False
+args_debug = False
+args_n_epochs = 250
+args_batch_size = 500
+
+data = Scripts.get_mnist()
+data = Scripts.normalise(data)
+x, x_test, y, y_test = Scripts.sklearn2theano(data)
+classifier = DeepConv.DeepConv(save=args_save, load=args_load, debug=args_debug)
+classifier.fit(data=x, labels=y, test_data=x_test, test_labels=y_test, n_epochs=args_n_epochs, batch_size=args_batch_size)
+y_pred = classifier.predict(x_test)
+classifier.score_report(y_test=y_test, y_pred=y_pred)
+logger.info('Classifier Scoring: {0}'.format(classifier.score(x_test, y_test)))
+Scripts.confusion_matrix(y_test, y_pred)
 ```
 
 ###Performance

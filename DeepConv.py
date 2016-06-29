@@ -24,11 +24,14 @@ warnings.simplefilter("ignore", DeprecationWarning)
 
 
 class DeepConv(object):
-    def __init__(self, args):
-        self.args = args
-        if self.args.debug:
+    def __init__(self, debug=False, load=False, save=False):
+        self.args_debug = debug
+        self.args_load = load
+        self.args_save = save
+
+        if self.args_debug:
             theano.exception_verbosity = 'high'
-        if self.args.load:
+        if self.args_load:
             self.load()
         else:
             self.layers = None
@@ -114,7 +117,7 @@ class DeepConv(object):
         t_taken = int((time.time()-start_time)/60.0)
         logger.info('Training Complete')
         logger.info('Test score of {0}%, training time {1}m'.format(test_score*100.0, t_taken))
-        if self.args.save:
+        if self.args_save:
             self.save()
 
     def predict(self, x_data, batch_size=500):
